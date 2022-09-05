@@ -1,6 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:tab2/logging.dart';
+import 'package:tab2/naviation.dart';
+import 'package:tab2/playground/Playground.dart';
 
 void main() {
+  Logger.level = Level.debug;
+
   runApp(const MyApp());
 }
 
@@ -49,6 +56,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final log = Logging.newLogger();
 
   void _incrementCounter() {
     setState(() {
@@ -74,6 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.add),
+              onPressed: () {
+                log.d("pressed");
+                Navigate(context).to((_) => Playground());
+              },
+          )
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -112,4 +129,5 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
