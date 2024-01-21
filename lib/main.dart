@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 import 'package:tab2/logging.dart';
@@ -87,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.add),
               onPressed: () {
                 log.d("pressed");
-                Navigate(context).to((_) => Playground());
+                Navigate(context).to((_) => const Playground());
               },
           )
         ],
@@ -117,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),

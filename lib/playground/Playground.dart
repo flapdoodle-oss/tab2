@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-import 'package:logger/logger.dart';
 import 'package:tab2/logging.dart';
 
 class Playground extends StatelessWidget {
+  const Playground({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,14 +15,14 @@ class Playground extends StatelessWidget {
       ),
       body: MakeSquareWidget(
         children: false
-            ? [Text("Wooohooo")]
+            ? [const Text("Wooohooo")]
             : [
                 Container(
                   color: Colors.green,
                   //width: 100.0,
                   //height: 100.0,
                   alignment: Alignment.center,
-                  child: Text("Wooohooo"),
+                  child: const Text("Wooohooo"),
                 )
               ],
       ),
@@ -70,8 +70,7 @@ class MakeSquare extends RenderBox
 }
 
 class MakeSquareWidget extends MultiChildRenderObjectWidget {
-  MakeSquareWidget({super.key, required List<Widget> children})
-      : super(children: children);
+  const MakeSquareWidget({super.key, required super.children});
 
   @override
   RenderObject createRenderObject(BuildContext context) {
